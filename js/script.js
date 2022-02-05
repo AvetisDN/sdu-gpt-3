@@ -17,9 +17,17 @@ mobileShadow.addEventListener('click', () => {
 const headerNav = document.querySelector('.header-nav')
 
 window.addEventListener('scroll', (e) => {
-    if(window.scrollY > 50) {
+    if (window.scrollY > 50) {
         headerNav.classList.add('compact')
     } else {
         headerNav.classList.remove('compact')
     }
 })
+
+document.addEventListener('swiped', function (e) {
+    if (e.detail.dir === 'left' && mobileNav.classList.contains('open')) {
+        menuBtn.classList.remove('open')
+        mobileNav.classList.remove('open')
+        mobileShadow.classList.remove('open')
+    }
+});
